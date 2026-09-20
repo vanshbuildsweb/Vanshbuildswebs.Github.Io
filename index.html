@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vansh Builds Websites | Modern Websites for Businesses</title>
+  <meta name="description" content="Vansh Builds Websites — modern, clean and responsive websites for businesses.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 8, 8, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: #8b5cf6;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      font-size: 14px;
+      color: #bdbdbd;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid #2d2d2d;
+      border-radius: 999px;
+      color: #cfcfcf;
+      font-size: 13px;
+      margin-bottom: 25px;
+      background: #101010;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 9vw, 92px);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #ffffff, #9b7cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 19px;
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    .tagline {
+      color: #d8d8d8 !important;
+      font-size: 16px !important;
+      margin-top: -15px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #080808;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid #333;
+      color: white;
+      background: #111;
+    }
+
+    .btn-secondary:hover {
+      border-color: #666;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 90px 0;
+      border-top: 1px solid #181818;
+    }
+
+    .section-label {
+      color: #8b5cf6;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      color: #999;
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    /* ABOUT */
+    .about-box {
+      background: #101010;
+      border: 1px solid #242424;
+      border-radius: 20px;
+      padding: 35px;
+    }
+
+    .about-box p {
+      color: #bcbcbc;
+      font-size: 17px;
+      max-width: 800px;
+    }
+
+    /* SERVICES */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #101010;
+      border: 1px solid #242424;
+      border-radius: 18px;
+      padding: 28px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #444;
+    }
+
+    .card-number {
+      color: #8b5cf6;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      background: #101010;
+      border: 1px solid #242424;
+      border-radius: 20px;
+      padding: 28px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 9px;
+      border-radius: 6px;
+      background: #1c152d;
+      color: #b99cff;
+      margin-bottom: 18px;
+    }
+
+    .project h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .project p {
+      color: #999;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .project a {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #b99cff;
+    }
+
+    .project a:hover {
+      text-decoration: underline;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      margin-top: 30px;
+      padding: 18px;
+      border: 1px solid #332b12;
+      background: #151208;
+      border-radius: 12px;
+      color: #c9bd91;
+      font-size: 13px;
+    }
+
+    /* PROCESS */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .step {
+      border-left: 2px solid #333;
+      padding-left: 20px;
+    }
+
+    .step span {
+      color: #8b5cf6;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .step h3 {
+      margin: 8px 0;
+      font-size: 18px;
+    }
+
+    .step p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: #101010;
+      border: 1px solid #242424;
+      border-radius: 24px;
+      padding: 60px 25px;
+    }
+
+    .cta h2 {
+      font-size: clamp(32px, 6vw, 58px);
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #999;
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid #181818;
+      color: #777;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 80vh;
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .grid,
+      .projects,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .about-box {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">Vansh<span>.</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="badge">💻 Vansh Builds Websites</div>
+
+        <h1>
+          Hy~ 👋<br>
+          I'm <span class="gradient">Vansh.</span>
+        </h1>
+
+        <p>
+          I build modern, clean & responsive websites for businesses
+          that wanna stand out online. 🚀
+        </p>
+
+        <p class="tagline">
+          Lowkey way too obsessed with building my career rn 😭💻
+        </p>
+
+        <div class="buttons">
+          <a href="#work" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <div class="section-label">01 — About</div>
+
+      <h2 class="section-title">Building websites,<br>building my future.</h2>
+
+      <p class="section-subtitle">
+        I'm Vansh, a web developer focused on creating clean,
+        modern and mobile-friendly websites for businesses.
+      </p>
+
+      <div class="about-box">
+        <p>
+          A lot of great businesses are doing amazing offline —
+          but their online presence doesn't always show it.
+          That's where I come in. I create websites that make a
+          business look professional, help customers find important
+          information quickly, and make it easier to get enquiries.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+
+      <div class="section-label">02 — Services</div>
+
+      <h2 class="section-title">What I can build.</h2>
+
+      <p class="section-subtitle">
+        Simple, useful websites designed around what your business actually needs.
+      </p>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-number">01</div>
+          <h3>Business Websites</h3>
+          <p>
+            Professional websites that introduce your business
+            and give customers the information they need.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">02</div>
+          <h3>Landing Pages</h3>
+          <p>
+            Focused pages designed around a service, offer,
+            campaign or specific business goal.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">03</div>
+          <h3>Responsive Design</h3>
+          <p>
+            Websites designed to look good and work smoothly
+            across phones, tablets and desktops.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">04</div>
+          <h3>WhatsApp Integration</h3>
+          <p>
+            Easy ways for customers to contact your business
+            directly through WhatsApp.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">05</div>
+          <h3>Customisation</h3>
+          <p>
+            Your branding, photos, services, products,
+            information and business requirements.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">06</div>
+          <h3>Website Updates</h3>
+          <p>
+            Content updates and improvements whenever
+            your business needs them.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="container">
+
+      <div class="section-label">03 — My Work</div>
+
+      <h2 class="section-title">Concept Projects.</h2>
+
+      <p class="section-subtitle">
+        A few website concepts I've created to explore different
+        business styles and industries.
+      </p>
+
+      <div class="projects">
+
+        <div class="project">
+          <div class="project-tag">CONCEPT DEMO</div>
+          <h3>Education Website Concept</h3>
+          <p>
+            A modern website concept designed for an educational
+            institute with courses, results, reviews and enquiries.
+          </p>
+          <a href="https://vanshbuildswebsites.github.io/Delhi-classes-khatima/" target="_blank">
+            View Demo →
+          </a>
+        </div>
+
+        <div class="project">
+          <div class="project-tag">CONCEPT DEMO</div>
+          <h3>Salon Website Concept</h3>
+          <p>
+            A stylish salon website concept with services,
+            gallery, appointments and contact sections.
+          </p>
+          <a href="https://vanshbuildswebsites.github.io/Makeovers-Khatima/" target="_blank">
+            View Demo →
+          </a>
+        </div>
+
+        <div class="project">
+          <div class="project-tag">CONCEPT DEMO</div>
+          <h3>Coaching Website Concept</h3>
+          <p>
+            A clean educational website concept focused on
+            courses, results, testimonials and enquiries.
+          </p>
+          <a href="https://vanshbuildswebsites.github.io/Abhyas-Classes-Khatima/" target="_blank">
+            View Demo →
+          </a>
+        </div>
+
+        <div class="project">
+          <div class="project-tag">CONCEPT DEMO</div>
+          <h3>Furniture Website Concept</h3>
+          <p>
+            A digital showroom concept for displaying furniture,
+            categories, products and customer enquiries.
+          </p>
+          <a href="https://vanshbuildswebsites.github.io/Home-Style-Furniture-Mart/" target="_blank">
+            View Demo →
+          </a>
+        </div>
+
+      </div>
+
+      <div class="disclaimer">
+        🔒 <strong>CONCEPT DEMOS — NOT OFFICIAL WEBSITES</strong><br><br>
+        These projects are unofficial website concepts created by
+        Vansh Builds Websites for demonstration purposes only.
+        They are not affiliated with or officially associated with
+        the businesses shown.
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+
+      <div class="section-label">04 — Process</div>
+
+      <h2 class="section-title">How it works.</h2>
+
+      <p class="section-subtitle">
+        No complicated process. Just a straightforward way to get your business online.
+      </p>
+
+      <div class="steps">
+
+        <div class="step">
+          <span>STEP 01</span>
+          <h3>Tell Me</h3>
+          <p>
+            Tell me about your business and what you want your website to do.
+          </p>
+        </div>
+
+        <div class="step">
+          <span>STEP 02</span>
+          <h3>I Build</h3>
+          <p>
+            I design and develop the website around your business.
+          </p>
+        </div>
+
+        <div class="step">
+          <span>STEP 03</span>
+          <h3>You Review</h3>
+          <p>
+            You check the website and share any changes you'd like.
+          </p>
+        </div>
+
+        <div class="step">
+          <span>STEP 04</span>
+          <h3>Go Live</h3>
+          <p>
+            Once everything is ready, your website can go live.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="cta">
+
+        <div class="section-label">05 — Contact</div>
+
+        <h2>Got a business?<br>Let's build its website.</h2>
+
+        <p>
+          Have an idea or want to take your business online?
+          Let's talk.
+        </p>
+
+        <div class="buttons" style="justify-content:center;">
+
+          <!-- Replace the email below with your business email -->
+          <a
+            href="mailto:YOURBUSINESSEMAIL@gmail.com"
+            class="btn btn-primary">
+            📧 Email Me
+          </a>
+
+          <!-- Replace the number below with your business WhatsApp number -->
+          <a
+            href="https://wa.me/YOURNUMBER"
+            target="_blank"
+            class="btn btn-secondary">
+            💬 WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      © 2026 Vansh Builds Websites · Built with 💻 by Vansh
+    </div>
+  </footer>
+
+</body>
+</html>
