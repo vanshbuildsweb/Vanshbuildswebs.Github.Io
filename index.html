@@ -1,948 +1,1864 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Vansh Builds Websites | Web & Digital Services</title>
-  <meta name="description" content="Web, social media and digital services by Vansh Builds Websites.">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #080808;
-      color: #fff;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1100px, 92%);
-      margin: auto;
-    }
-
-    /* NAVBAR */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(8, 8, 8, .92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #222;
-    }
-
-    .nav-inner {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .logo span {
-      color: #8b5cf6;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-      font-size: 14px;
-      color: #aaa;
-    }
-
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      padding: 80px 0;
-    }
-
-    .hero-content {
-      max-width: 850px;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid #2d2d2d;
-      border-radius: 999px;
-      color: #ccc;
-      font-size: 13px;
-      margin-bottom: 25px;
-      background: #101010;
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 9vw, 92px);
-      line-height: .98;
-      letter-spacing: -4px;
-      margin-bottom: 25px;
-    }
-
-    .gradient {
-      background: linear-gradient(90deg, #fff, #9b7cff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero p {
-      max-width: 700px;
-      font-size: 19px;
-      color: #aaa;
-      margin-bottom: 18px;
-    }
-
-    .tagline {
-      color: #ddd !important;
-      font-size: 16px !important;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 20px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 14px;
-      transition: .2s;
-    }
-
-    .btn-primary {
-      background: #fff;
-      color: #080808;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      border: 1px solid #333;
-      background: #111;
-    }
-
-    .btn-secondary:hover {
-      border-color: #666;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 90px 0;
-      border-top: 1px solid #181818;
-    }
-
-    .section-label {
-      color: #8b5cf6;
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: clamp(32px, 5vw, 52px);
-      letter-spacing: -2px;
-      margin-bottom: 15px;
-    }
-
-    .section-subtitle {
-      color: #999;
-      max-width: 700px;
-      margin-bottom: 45px;
-    }
-
-    /* ABOUT */
-    .about-box {
-      background: #101010;
-      border: 1px solid #242424;
-      border-radius: 20px;
-      padding: 35px;
-    }
-
-    .about-box p {
-      color: #bbb;
-      font-size: 17px;
-      max-width: 850px;
-    }
-
-    /* SERVICES */
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: #101010;
-      border: 1px solid #242424;
-      border-radius: 18px;
-      padding: 28px;
-      transition: .2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #444;
-    }
-
-    .card-number {
-      color: #8b5cf6;
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #999;
-      font-size: 14px;
-    }
-
-    /* SERVICE CATEGORY */
-    .service-category {
-      margin-bottom: 60px;
-    }
-
-    .service-category:last-child {
-      margin-bottom: 0;
-    }
-
-    .category-heading {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .category-text {
-      color: #888;
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
-    /* PLUGGING */
-    .plugging-box {
-      background: #0f0d14;
-      border: 1px solid #332c45;
-      border-radius: 20px;
-      padding: 32px;
-    }
-
-    .plugging-box h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
-
-    .plugging-box p {
-      color: #aaa;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .plug-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-bottom: 25px;
-    }
-
-    .plug-item {
-      background: #15131b;
-      border: 1px solid #292532;
-      border-radius: 10px;
-      padding: 12px 15px;
-      color: #bbb;
-      font-size: 14px;
-    }
-
-    /* PROJECTS */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .project {
-      background: #101010;
-      border: 1px solid #242424;
-      border-radius: 20px;
-      padding: 28px;
-    }
-
-    .project-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 6px 9px;
-      border-radius: 6px;
-      background: #1c152d;
-      color: #b99cff;
-      margin-bottom: 18px;
-    }
-
-    .project h3 {
-      font-size: 23px;
-      margin-bottom: 8px;
-    }
-
-    .project p {
-      color: #999;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .project a {
-      color: #b99cff;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .project a:hover {
-      text-decoration: underline;
-    }
-
-    .disclaimer {
-      margin-top: 30px;
-      padding: 18px;
-      border: 1px solid #332b12;
-      background: #151208;
-      border-radius: 12px;
-      color: #c9bd91;
-      font-size: 13px;
-    }
-
-    /* PRICING */
-    .pricing-box {
-      background: #101010;
-      border: 1px solid #242424;
-      border-radius: 20px;
-      padding: 40px;
-      text-align: center;
-    }
-
-    .pricing-box h3 {
-      font-size: 30px;
-      margin-bottom: 12px;
-    }
-
-    .pricing-box p {
-      color: #999;
-      margin-bottom: 24px;
-    }
-
-    .price-note {
-      color: #b99cff !important;
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    /* CONTACT */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .contact-card {
-      background: #101010;
-      border: 1px solid #242424;
-      border-radius: 20px;
-      padding: 30px;
-    }
-
-    .contact-card h3 {
-      font-size: 23px;
-      margin-bottom: 8px;
-    }
-
-    .contact-card p {
-      color: #999;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 35px 0;
-      border-top: 1px solid #181818;
-      color: #777;
-      font-size: 13px;
-      text-align: center;
-    }
-
-    /* MOBILE */
-    @media (max-width: 800px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        min-height: 80vh;
-        padding: 60px 0;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      .service-grid,
-      .projects,
-      .contact-grid,
-      .plug-list {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 70px 0;
-      }
-
-      .about-box,
-      .plugging-box,
-      .pricing-box,
-      .contact-card {
-        padding: 25px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vansh Builds Websites | Web & Digital Services</title>
+<meta name="description" content="Web, social media and digital services by Vansh Builds Websites.">
+
+<style>
+:root{
+  --bg:#07070a;
+  --surface:#0d0d12;
+  --card:#111118;
+  --card2:#16161f;
+  --text:#f7f7f8;
+  --muted:#9999a7;
+  --line:rgba(255,255,255,.09);
+
+  --lime:#caff45;
+  --purple:#9b5cff;
+  --pink:#ff4fd8;
+  --cyan:#55e8ff;
+
+  --radius:22px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 5% 0%,rgba(155,92,255,.13),transparent 28%),
+    radial-gradient(circle at 95% 10%,rgba(255,79,216,.09),transparent 25%),
+    radial-gradient(circle at 50% 80%,rgba(85,232,255,.05),transparent 28%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:70px 70px;
+  mask-image:linear-gradient(to bottom,black,transparent 75%);
+  z-index:-1;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+.container{
+  width:min(1150px,calc(100% - 40px));
+  margin:auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(7,7,10,.76);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:20px;
+  font-weight:1000;
+  letter-spacing:-.05em;
+}
+
+.logo-mark{
+  width:35px;
+  height:35px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  background:var(--lime);
+  color:#080808;
+  font-size:17px;
+  font-weight:1000;
+  box-shadow:0 0 28px rgba(202,255,69,.18);
+}
+
+.logo span{
+  color:var(--lime);
+}
+
+.nav-links{
+  display:flex;
+  gap:27px;
+  list-style:none;
+  font-size:13px;
+  color:#a7a7b1;
+  font-weight:700;
+}
+
+.nav-links a{
+  transition:.2s;
+}
+
+.nav-links a:hover{
+  color:#fff;
+}
+
+.nav-contact{
+  padding:11px 15px;
+  border-radius:12px;
+  background:var(--lime);
+  color:#080808;
+  font-size:12px;
+  font-weight:1000;
+  transition:.2s;
+}
+
+.nav-contact:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(202,255,69,.15);
+}
+
+/* =========================
+   TICKER
+========================= */
+
+.ticker{
+  overflow:hidden;
+  white-space:nowrap;
+  background:#050507;
+  border-bottom:1px solid var(--line);
+}
+
+.ticker-track{
+  display:inline-flex;
+  min-width:max-content;
+  animation:ticker 25s linear infinite;
+}
+
+.ticker span{
+  padding:11px 23px;
+  color:#777783;
+  font-size:9px;
+  font-weight:1000;
+  letter-spacing:.18em;
+}
+
+.ticker span::before{
+  content:"✦";
+  color:var(--lime);
+  margin-right:22px;
+}
+
+@keyframes ticker{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  position:relative;
+  min-height:88vh;
+  display:flex;
+  align-items:center;
+  padding:100px 0;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:720px;
+  height:500px;
+  left:50%;
+  top:0;
+  transform:translateX(-50%);
+  background:
+    radial-gradient(circle at 35% 40%,rgba(155,92,255,.23),transparent 40%),
+    radial-gradient(circle at 65% 45%,rgba(255,79,216,.16),transparent 35%),
+    radial-gradient(circle at 50% 75%,rgba(202,255,69,.09),transparent 35%);
+  filter:blur(35px);
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;
+  max-width:900px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 13px;
+  border:1px solid rgba(202,255,69,.2);
+  border-radius:999px;
+  color:var(--lime);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.13em;
+  background:rgba(202,255,69,.045);
+}
+
+.hero h1{
+  margin:25px 0 22px;
+  font-size:clamp(62px,10vw,115px);
+  line-height:.88;
+  letter-spacing:-.085em;
+  font-weight:1000;
+}
+
+.gradient{
+  background:linear-gradient(
+    100deg,
+    #fff 0%,
+    #b99cff 28%,
+    #ff70dc 55%,
+    #caff45 100%
+  );
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  max-width:700px;
+  font-size:17px;
+  color:var(--muted);
+  line-height:1.75;
+}
+
+.tagline{
+  margin-top:9px;
+  color:#dedee5!important;
+  font-size:14px!important;
+}
+
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:27px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:47px;
+  padding:0 19px;
+  border-radius:13px;
+  font-size:12px;
+  font-weight:1000;
+  transition:.22s;
+}
+
+.btn-primary{
+  background:var(--lime);
+  color:#080808;
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 13px 32px rgba(202,255,69,.13);
+}
+
+.btn-secondary{
+  background:rgba(255,255,255,.035);
+  border:1px solid var(--line);
+}
+
+.btn-secondary:hover{
+  border-color:rgba(255,255,255,.2);
+  transform:translateY(-2px);
+}
+
+.hero-stats{
+  margin-top:60px;
+  max-width:800px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  background:rgba(255,255,255,.02);
+}
+
+.stat{
+  padding:17px;
+  border-right:1px solid var(--line);
+}
+
+.stat:last-child{
+  border-right:0;
+}
+
+.stat strong{
+  display:block;
+  font-size:13px;
+}
+
+.stat span{
+  display:block;
+  margin-top:4px;
+  color:#777783;
+  font-size:10px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+  position:relative;
+  padding:95px 0;
+  border-top:1px solid rgba(255,255,255,.055);
+}
+
+.section-label{
+  color:var(--lime);
+  font-size:10px;
+  font-weight:1000;
+  text-transform:uppercase;
+  letter-spacing:.17em;
+  margin-bottom:12px;
+}
+
+.section-title{
+  font-size:clamp(38px,6vw,65px);
+  line-height:.95;
+  letter-spacing:-.07em;
+  margin-bottom:15px;
+}
+
+.section-subtitle{
+  color:var(--muted);
+  max-width:700px;
+  margin-bottom:42px;
+  font-size:14px;
+  line-height:1.75;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-box{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(155,92,255,.1),transparent 35%),
+    linear-gradient(135deg,rgba(255,255,255,.035),rgba(255,255,255,.012)),
+    var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:38px;
+}
+
+.about-box::after{
+  content:"WEB";
+  position:absolute;
+  right:-20px;
+  bottom:-35px;
+  font-size:100px;
+  font-weight:1000;
+  letter-spacing:-.08em;
+  color:rgba(255,255,255,.025);
+  pointer-events:none;
+}
+
+.about-box p{
+  position:relative;
+  z-index:1;
+  color:#bcbcc6;
+  font-size:16px;
+  max-width:850px;
+}
+
+/* =========================
+   SERVICE CATEGORY
+========================= */
+
+.service-category{
+  position:relative;
+  margin-bottom:75px;
+}
+
+.service-category:last-child{
+  margin-bottom:0;
+}
+
+.category-heading{
+  font-size:28px;
+  letter-spacing:-.04em;
+  margin-bottom:7px;
+}
+
+.category-text{
+  color:#858591;
+  font-size:13px;
+  margin-bottom:24px;
+}
+
+/* =========================
+   SERVICE GRID
+========================= */
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.card{
+  position:relative;
+  min-height:255px;
+  overflow:hidden;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.012)),
+    var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(255,255,255,.17);
+  box-shadow:0 22px 55px rgba(0,0,0,.35);
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  right:-100px;
+  top:-90px;
+  border-radius:50%;
+  filter:blur(45px);
+  opacity:.13;
+  transition:.3s;
+}
+
+.card:hover::before{
+  opacity:.23;
+}
+
+.card-number{
+  position:relative;
+  z-index:2;
+  color:var(--lime);
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:.13em;
+}
+
+.card h3{
+  position:relative;
+  z-index:2;
+  margin-top:72px;
+  font-size:20px;
+  letter-spacing:-.035em;
+}
+
+.card p{
+  position:relative;
+  z-index:2;
+  margin-top:8px;
+  color:#90909c;
+  font-size:12px;
+  line-height:1.65;
+}
+
+/* service stickers */
+
+.card::after{
+  position:absolute;
+  right:19px;
+  top:17px;
+  font-size:43px;
+  opacity:.13;
+  transform:rotate(-8deg);
+  transition:.25s;
+}
+
+.card:hover::after{
+  opacity:.24;
+  transform:rotate(4deg) scale(1.06);
+}
+
+/* WEB */
+
+.web-card:nth-child(1)::before,
+.web-card:nth-child(2)::before,
+.web-card:nth-child(3)::before,
+.web-card:nth-child(4)::before,
+.web-card:nth-child(5)::before,
+.web-card:nth-child(6)::before{
+  background:var(--cyan);
+}
+
+.web-card:nth-child(1)::after{content:"🌐";}
+.web-card:nth-child(2)::after{content:"↗";}
+.web-card:nth-child(3)::after{content:"📱";}
+.web-card:nth-child(4)::after{content:"⚙";}
+.web-card:nth-child(5)::after{content:"💬";}
+.web-card:nth-child(6)::after{content:"📱";}
+
+/* SOCIAL */
+
+.social-card:nth-child(1)::before{
+  background:var(--pink);
+}
+.social-card:nth-child(2)::before{
+  background:var(--purple);
+}
+.social-card:nth-child(3)::before{
+  background:var(--cyan);
+}
+.social-card:nth-child(4)::before{
+  background:var(--lime);
+}
+
+.social-card:nth-child(1)::after{content:"◉";}
+.social-card:nth-child(2)::after{content:"🔐";}
+.social-card:nth-child(3)::after{content:"📱";}
+.social-card:nth-child(4)::after{content:"✦";}
+
+/* =========================
+   CATEGORY VISUAL BAR
+========================= */
+
+.category-visual{
+  position:absolute;
+  right:0;
+  top:-8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:#666672;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.visual-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--lime);
+  box-shadow:0 0 14px var(--lime);
+}
+
+/* =========================
+   PLUGGING
+========================= */
+
+.plugging-box{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 10%,rgba(255,79,216,.13),transparent 30%),
+    radial-gradient(circle at 5% 100%,rgba(155,92,255,.12),transparent 35%),
+    linear-gradient(135deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+  border:1px solid rgba(155,92,255,.2);
+  border-radius:var(--radius);
+  padding:32px;
+}
+
+.plugging-box::after{
+  content:"🔌";
+  position:absolute;
+  right:35px;
+  top:24px;
+  font-size:70px;
+  opacity:.08;
+  transform:rotate(10deg);
+}
+
+.plugging-box h3{
+  position:relative;
+  z-index:2;
+  font-size:25px;
+  letter-spacing:-.04em;
+  margin-bottom:8px;
+}
+
+.plugging-box p{
+  position:relative;
+  z-index:2;
+  color:#aaaab5;
+  font-size:13px;
+  max-width:650px;
+  margin-bottom:22px;
+}
+
+.plug-list{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.plug-item{
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.075);
+  border-radius:13px;
+  padding:13px 15px;
+  color:#bdbdc7;
+  font-size:12px;
+  transition:.2s;
+}
+
+.plug-item:hover{
+  background:rgba(255,255,255,.05);
+  border-color:rgba(255,255,255,.14);
+  transform:translateX(3px);
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.project{
+  position:relative;
+  overflow:hidden;
+  min-height:250px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(155,92,255,.1),transparent 32%),
+    var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:27px;
+  transition:.25s;
+}
+
+.project:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,.17);
+  box-shadow:0 20px 55px rgba(155,92,255,.07);
+}
+
+.project::after{
+  content:"🌐";
+  position:absolute;
+  right:22px;
+  top:18px;
+  font-size:50px;
+  opacity:.08;
+  transform:rotate(-8deg);
+}
+
+.project-tag{
+  display:inline-flex;
+  padding:6px 9px;
+  border-radius:7px;
+  background:rgba(155,92,255,.1);
+  color:#b99cff;
+  font-size:9px;
+  font-weight:1000;
+  letter-spacing:.1em;
+  margin-bottom:18px;
+}
+
+.project h3{
+  position:relative;
+  z-index:2;
+  font-size:22px;
+  letter-spacing:-.035em;
+  margin-bottom:8px;
+}
+
+.project p{
+  position:relative;
+  z-index:2;
+  color:#90909c;
+  font-size:13px;
+  max-width:470px;
+  margin-bottom:22px;
+}
+
+.project a{
+  position:relative;
+  z-index:2;
+  color:var(--lime);
+  font-size:12px;
+  font-weight:1000;
+}
+
+.project a:hover{
+  text-decoration:underline;
+}
+
+.disclaimer{
+  margin-top:25px;
+  padding:18px;
+  border:1px solid rgba(202,180,70,.18);
+  background:rgba(202,180,70,.035);
+  border-radius:14px;
+  color:#c9bd91;
+  font-size:11px;
+  line-height:1.65;
+}
+
+/* =========================
+   PRICING
+========================= */
+
+.pricing-box{
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  padding:55px 30px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(202,255,69,.09),transparent 38%),
+    linear-gradient(135deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+  border:1px solid var(--line);
+  border-radius:30px;
+}
+
+.pricing-box::after{
+  content:"₹";
+  position:absolute;
+  right:7%;
+  bottom:-55px;
+  font-size:190px;
+  line-height:1;
+  font-weight:1000;
+  color:rgba(202,255,69,.025);
+}
+
+.pricing-box h3{
+  position:relative;
+  z-index:2;
+  font-size:32px;
+  letter-spacing:-.05em;
+  margin-bottom:10px;
+}
+
+.pricing-box p{
+  position:relative;
+  z-index:2;
+  color:#9999a7;
+  max-width:600px;
+  margin:0 auto 22px;
+  font-size:13px;
+}
+
+.price-note{
+  color:var(--lime)!important;
+  font-weight:900;
+  font-size:13px!important;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.contact-card{
+  position:relative;
+  overflow:hidden;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:30px;
+  transition:.25s;
+}
+
+.contact-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,.16);
+}
+
+.contact-card::after{
+  position:absolute;
+  right:20px;
+  top:15px;
+  font-size:55px;
+  opacity:.07;
+}
+
+.contact-card:first-child::after{
+  content:"🌐";
+}
+
+.contact-card:last-child::after{
+  content:"🔌";
+}
+
+.contact-card h3{
+  position:relative;
+  z-index:2;
+  font-size:22px;
+  letter-spacing:-.04em;
+  margin-bottom:8px;
+}
+
+.contact-card p{
+  position:relative;
+  z-index:2;
+  color:#91919d;
+  font-size:13px;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  position:relative;
+  overflow:hidden;
+  padding:35px 0;
+  border-top:1px solid var(--line);
+  color:#666672;
+  font-size:11px;
+  text-align:center;
+}
+
+.footer-glow{
+  position:absolute;
+  left:50%;
+  top:0;
+  width:350px;
+  height:100px;
+  transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(155,92,255,.08),transparent 65%);
+  pointer-events:none;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+.card,
+.project,
+.service-category,
+.about-box,
+.pricing-box,
+.contact-card,
+.plugging-box{
+  animation:fadeUp .7s ease both;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(15px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+  .container{
+    width:min(100% - 28px,1150px);
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    min-height:80vh;
+    padding:75px 0;
+  }
+
+  .hero h1{
+    font-size:68px;
+    letter-spacing:-.065em;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .hero-stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stat:nth-child(2){
+    border-right:0;
+  }
+
+  .stat:nth-child(-n+2){
+    border-bottom:1px solid var(--line);
+  }
+
+  section{
+    padding:70px 0;
+  }
+
+  .service-grid,
+  .projects,
+  .contact-grid,
+  .plug-list{
+    grid-template-columns:1fr;
+  }
+
+  .category-visual{
+    display:none;
+  }
+
+  .card{
+    min-height:235px;
+  }
+
+  .plugging-box{
+    padding:25px;
+  }
+
+  .about-box{
+    padding:27px;
+  }
+
+  .pricing-box{
+    padding:45px 22px;
+  }
+}
+
+@media(max-width:520px){
+
+  .nav-contact{
+    padding:10px 12px;
+    font-size:10px;
+  }
+
+  .hero h1{
+    font-size:62px;
+  }
+
+  .hero-stats{
+    margin-top:45px;
+  }
+
+  .stat{
+    padding:14px 8px;
+  }
+
+  .stat strong{
+    font-size:11px;
+  }
+
+  .stat span{
+    font-size:9px;
+  }
+
+  .section-title{
+    font-size:42px;
+  }
+
+  .category-heading{
+    font-size:24px;
+  }
+
+  .future{
+    flex-direction:column;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="container nav-inner">
-      <a href="#" class="logo">Vansh<span>.</span></a>
+<!-- =========================
+     NAVBAR
+========================= -->
 
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+<nav>
+
+  <div class="container nav-inner">
+
+    <a href="#" class="logo">
+
+      <div class="logo-mark">
+        V
+      </div>
+
+      Vansh<span>.</span>
+
+    </a>
+
+    <ul class="nav-links">
+
+      <li>
+        <a href="#about">About</a>
+      </li>
+
+      <li>
+        <a href="#services">Services</a>
+      </li>
+
+      <li>
+        <a href="#work">Work</a>
+      </li>
+
+      <li>
+        <a href="#pricing">Pricing</a>
+      </li>
+
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+
+    </ul>
+
+    <a
+      href="#contact"
+      class="nav-contact">
+      Let's Talk →
+    </a>
+
+  </div>
+
+</nav>
 
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero-content">
+<!-- =========================
+     TICKER
+========================= -->
 
-        <div class="badge">💻 Vansh Builds Websites</div>
+<div class="ticker">
 
-        <h1>
-          Hy~ 👋<br>
-          I'm <span class="gradient">Vansh.</span>
-        </h1>
+  <div class="ticker-track">
 
-        <p>
-          I provide modern, clean & responsive web services
-          for businesses that wanna stand out online. 🚀
-        </p>
+    <span>WEB DEVELOPMENT</span>
+    <span>SOCIAL MEDIA</span>
+    <span>DIGITAL SERVICES</span>
+    <span>CUSTOM SOLUTIONS</span>
 
-        <p class="tagline">
-          Lowkey way too obsessed with building my career rn 😭💻
-        </p>
+    <span>WEB DEVELOPMENT</span>
+    <span>SOCIAL MEDIA</span>
+    <span>DIGITAL SERVICES</span>
+    <span>CUSTOM SOLUTIONS</span>
 
-        <div class="buttons">
-          <a href="#services" class="btn btn-primary">Explore Services</a>
-          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+  </div>
+
+</div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+  <div class="container">
+
+    <div class="hero-content">
+
+      <div class="badge">
+        💻 VANSH BUILDS WEBSITES
+      </div>
+
+      <h1>
+        Hy~ 👋<br>
+        I'm <span class="gradient">Vansh.</span>
+      </h1>
+
+      <p>
+        I provide modern, clean & responsive web services
+        for businesses that wanna stand out online. 🚀
+      </p>
+
+      <p class="tagline">
+        Lowkey way too obsessed with building my career rn 😭💻
+      </p>
+
+      <div class="buttons">
+
+        <a
+          href="#services"
+          class="btn btn-primary">
+          Explore Services →
+        </a>
+
+        <a
+          href="#contact"
+          class="btn btn-secondary">
+          Contact Me
+        </a>
+
+      </div>
+
+      <div class="hero-stats">
+
+        <div class="stat">
+          <strong>Web Services</strong>
+          <span>Custom solutions</span>
+        </div>
+
+        <div class="stat">
+          <strong>Social Media</strong>
+          <span>Digital support</span>
+        </div>
+
+        <div class="stat">
+          <strong>Concept Projects</strong>
+          <span>View my work</span>
+        </div>
+
+        <div class="stat">
+          <strong>Custom Work</strong>
+          <span>DM for details</span>
         </div>
 
       </div>
+
     </div>
-  </header>
+
+  </div>
+
+</header>
 
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
+<!-- =========================
+     ABOUT
+========================= -->
 
-      <div class="section-label">01 — About</div>
+<section id="about">
 
-      <h2 class="section-title">Digital presence,<br>done differently.</h2>
+  <div class="container">
 
-      <p class="section-subtitle">
-        I work on web, social media and other digital services
-        to help businesses build a stronger online presence.
+    <div class="section-label">
+      01 — ABOUT
+    </div>
+
+    <h2 class="section-title">
+      Digital presence,<br>
+      done differently.
+    </h2>
+
+    <p class="section-subtitle">
+      I work on web, social media and other digital services
+      to help businesses build a stronger online presence.
+    </p>
+
+    <div class="about-box">
+
+      <p>
+        Whether you need a professional website, social media
+        support, digital marketing-related services, an app,
+        or other online solutions — I'm focused on creating
+        practical digital experiences that fit your requirements.
       </p>
 
-      <div class="about-box">
-        <p>
-          Whether you need a professional website, social media
-          support, digital marketing-related services, an app,
-          or other online solutions — I'm focused on creating
-          practical digital experiences that fit your requirements.
-        </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section id="services">
+
+  <div class="container">
+
+    <div class="section-label">
+      02 — SERVICES
+    </div>
+
+    <h2 class="section-title">
+      What I offer.
+    </h2>
+
+    <p class="section-subtitle">
+      Different digital services for different needs.
+      If you don't see exactly what you need, just DM me.
+    </p>
+
+
+    <!-- WEB SERVICES -->
+
+    <div class="service-category">
+
+      <div class="category-visual">
+        <span class="visual-dot"></span>
+        WEB SERVICES
+      </div>
+
+      <h3 class="category-heading">
+        🌐 Web Services
+      </h3>
+
+      <p class="category-text">
+        Modern web solutions designed around your business.
+      </p>
+
+      <div class="service-grid">
+
+
+        <div class="card web-card">
+
+          <div class="card-number">
+            01 · WEB
+          </div>
+
+          <h3>
+            Business Websites
+          </h3>
+
+          <p>
+            Professional websites that present your business
+            and make it easier for customers to connect with you.
+          </p>
+
+        </div>
+
+
+        <div class="card web-card">
+
+          <div class="card-number">
+            02 · WEB
+          </div>
+
+          <h3>
+            Landing Pages
+          </h3>
+
+          <p>
+            Focused pages for services, products, campaigns
+            and specific business goals.
+          </p>
+
+        </div>
+
+
+        <div class="card web-card">
+
+          <div class="card-number">
+            03 · WEB
+          </div>
+
+          <h3>
+            Responsive Websites
+          </h3>
+
+          <p>
+            Websites designed to work smoothly across phones,
+            tablets and desktops.
+          </p>
+
+        </div>
+
+
+        <div class="card web-card">
+
+          <div class="card-number">
+            04 · WEB
+          </div>
+
+          <h3>
+            Website Customisation
+          </h3>
+
+          <p>
+            Custom layouts, branding, content, features
+            and functionality based on your requirements.
+          </p>
+
+        </div>
+
+
+        <div class="card web-card">
+
+          <div class="card-number">
+            05 · WEB
+          </div>
+
+          <h3>
+            WhatsApp Integration
+          </h3>
+
+          <p>
+            Easy customer-contact and enquiry options
+            through WhatsApp.
+          </p>
+
+        </div>
+
+
+        <div class="card web-card">
+
+          <div class="card-number">
+            06 · WEB
+          </div>
+
+          <h3>
+            App Creation
+          </h3>
+
+          <p>
+            Custom app concepts and digital solutions
+            based on your requirements.
+          </p>
+
+        </div>
+
+
+      </div>
+
+      <div class="buttons">
+
+        <a
+          href="https://wa.me/917900960207"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary">
+          💬 Contact for Web Services
+        </a>
+
       </div>
 
     </div>
-  </section>
 
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
+    <!-- SOCIAL MEDIA -->
 
-      <div class="section-label">02 — Services</div>
+    <div class="service-category">
 
-      <h2 class="section-title">What I offer.</h2>
+      <div class="category-visual">
+        <span class="visual-dot"></span>
+        SOCIAL + DIGITAL
+      </div>
 
-      <p class="section-subtitle">
-        Different digital services for different needs.
-        If you don't see exactly what you need, just DM me.
+      <h3 class="category-heading">
+        📱 Social Media & Digital Services
+      </h3>
+
+      <p class="category-text">
+        Other social-media and digital services, including:
       </p>
 
+      <div class="service-grid">
 
-      <!-- WEB SERVICES -->
-      <div class="service-category">
 
-        <h3 class="category-heading">🌐 Web Services</h3>
+        <div class="card social-card">
 
-        <p class="category-text">
-          Modern web solutions designed around your business.
+          <div class="card-number">
+            01 · SOCIAL
+          </div>
+
+          <h3>
+            Meta Ads
+          </h3>
+
+          <p>
+            Assistance with Meta advertising and
+            social-media-related digital services.
+          </p>
+
+        </div>
+
+
+        <div class="card social-card">
+
+          <div class="card-number">
+            02 · SOCIAL
+          </div>
+
+          <h3>
+            Account Management
+          </h3>
+
+          <p>
+            Account and email management support
+            for your digital presence.
+          </p>
+
+        </div>
+
+
+        <div class="card social-card">
+
+          <div class="card-number">
+            03 · SOCIAL
+          </div>
+
+          <h3>
+            App Creation
+          </h3>
+
+          <p>
+            Digital app concepts and custom solutions
+            for different requirements.
+          </p>
+
+        </div>
+
+
+        <div class="card social-card">
+
+          <div class="card-number">
+            04 · SOCIAL
+          </div>
+
+          <h3>
+            And Many More
+          </h3>
+
+          <p>
+            Have something specific in mind?
+            Contact me and let's discuss it.
+          </p>
+
+        </div>
+
+
+      </div>
+
+      <div class="buttons">
+
+        <a
+          href="https://wa.me/917900960207"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary">
+          💬 Contact for Social Media Services
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- PLUGGING -->
+
+    <div class="service-category">
+
+      <div class="category-visual">
+        <span class="visual-dot"></span>
+        DIGITAL SUPPORT
+      </div>
+
+      <h3 class="category-heading">
+        🔌 Plugging Services
+      </h3>
+
+      <p class="category-text">
+        Digital support services for specific account,
+        platform and editing-related requirements.
+      </p>
+
+      <div class="plugging-box">
+
+        <h3>
+          Need a specific digital service?
+        </h3>
+
+        <p>
+          Contact me on Telegram for plugging-related services
+          and other digital support requirements.
         </p>
 
-        <div class="service-grid">
+        <div class="plug-list">
 
-          <div class="card">
-            <div class="card-number">01</div>
-            <h3>Business Websites</h3>
-            <p>
-              Professional websites that present your business
-              and make it easier for customers to connect with you.
-            </p>
+          <div class="plug-item">
+            🔐 Account Support / Recovery Assistance
           </div>
 
-          <div class="card">
-            <div class="card-number">02</div>
-            <h3>Landing Pages</h3>
-            <p>
-              Focused pages for services, products, campaigns
-              and specific business goals.
-            </p>
+          <div class="plug-item">
+            ✏️ Edit Services
           </div>
 
-          <div class="card">
-            <div class="card-number">03</div>
-            <h3>Responsive Websites</h3>
-            <p>
-              Websites designed to work smoothly across phones,
-              tablets and desktops.
-            </p>
+          <div class="plug-item">
+            🛠️ Digital Support Services
           </div>
 
-          <div class="card">
-            <div class="card-number">04</div>
-            <h3>Website Customisation</h3>
-            <p>
-              Custom layouts, branding, content, features
-              and functionality based on your requirements.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-number">05</div>
-            <h3>WhatsApp Integration</h3>
-            <p>
-              Easy customer-contact and enquiry options
-              through WhatsApp.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-number">06</div>
-            <h3>App Creation</h3>
-            <p>
-              Custom app concepts and digital solutions
-              based on your requirements.
-            </p>
+          <div class="plug-item">
+            ➕ Many More Services
           </div>
 
         </div>
 
         <div class="buttons">
+
+          <a
+            href="https://t.me/sir_tobii"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary">
+            💬 Contact on Telegram
+          </a>
+
+          <a
+            href="https://t.me/tobi_empire"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-secondary">
+            📢 Telegram Channel
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     WORK
+========================= -->
+
+<section id="work">
+
+  <div class="container">
+
+    <div class="section-label">
+      03 — MY WORK
+    </div>
+
+    <h2 class="section-title">
+      Concept Projects.
+    </h2>
+
+    <p class="section-subtitle">
+      Website concepts I've created to explore different
+      business styles and industries.
+    </p>
+
+
+    <div class="projects">
+
+
+      <div class="project">
+
+        <div class="project-tag">
+          CONCEPT DEMO
+        </div>
+
+        <h3>
+          Education Website Concept
+        </h3>
+
+        <p>
+          A modern education website concept with courses,
+          information, results and enquiry sections.
+        </p>
+
+        <a
+          href="https://vanshbuildswebsites.github.io/Delhi-classes-khatima/"
+          target="_blank"
+          rel="noopener">
+          View Demo →
+        </a>
+
+      </div>
+
+
+      <div class="project">
+
+        <div class="project-tag">
+          CONCEPT DEMO
+        </div>
+
+        <h3>
+          Salon Website Concept
+        </h3>
+
+        <p>
+          A stylish salon website concept with services,
+          gallery, appointments and contact sections.
+        </p>
+
+        <a
+          href="https://vanshbuildswebsites.github.io/Makeovers-Khatima/"
+          target="_blank"
+          rel="noopener">
+          View Demo →
+        </a>
+
+      </div>
+
+
+      <div class="project">
+
+        <div class="project-tag">
+          CONCEPT DEMO
+        </div>
+
+        <h3>
+          Coaching Website Concept
+        </h3>
+
+        <p>
+          A clean educational website concept focused on
+          courses, results, testimonials and enquiries.
+        </p>
+
+        <a
+          href="https://vanshbuildswebsites.github.io/Abhyas-Classes-Khatima/"
+          target="_blank"
+          rel="noopener">
+          View Demo →
+        </a>
+
+      </div>
+
+
+      <div class="project">
+
+        <div class="project-tag">
+          CONCEPT DEMO
+        </div>
+
+        <h3>
+          Furniture Website Concept
+        </h3>
+
+        <p>
+          A digital showroom concept for displaying furniture,
+          categories, products and customer enquiries.
+        </p>
+
+        <a
+          href="https://vanshbuildswebsites.github.io/Home-Style-Furniture-Mart/"
+          target="_blank"
+          rel="noopener">
+          View Demo →
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="disclaimer">
+
+      🔒 <strong>CONCEPT DEMOS — NOT OFFICIAL WEBSITES</strong>
+
+      <br><br>
+
+      These projects are unofficial website concepts created by
+      Vansh Builds Websites for demonstration purposes only.
+      They are not affiliated with or officially associated with
+      the businesses shown.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PRICING
+========================= -->
+
+<section id="pricing">
+
+  <div class="container">
+
+    <div class="section-label">
+      04 — PRICING
+    </div>
+
+    <h2 class="section-title">
+      Let's talk numbers.
+    </h2>
+
+    <div class="pricing-box">
+
+      <h3>
+        💰 DM for pricing
+      </h3>
+
+      <p>
+        Pricing depends on your requirements, project scope,
+        features and the level of your website/service.
+      </p>
+
+      <p class="price-note">
+        No fixed price — every project is different.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+  <div class="container">
+
+    <div class="section-label">
+      05 — CONTACT
+    </div>
+
+    <h2 class="section-title">
+      Let's work together.
+    </h2>
+
+    <p class="section-subtitle">
+      Choose the platform based on the service you need.
+    </p>
+
+
+    <div class="contact-grid">
+
+
+      <div class="contact-card">
+
+        <h3>
+          🌐 Web & Social Services
+        </h3>
+
+        <p>
+          For web services, Meta Ads, social-media services,
+          account/email management, apps and other digital services.
+        </p>
+
+        <div class="buttons">
+
           <a
             href="https://wa.me/917900960207"
             target="_blank"
+            rel="noopener"
             class="btn btn-primary">
-            💬 Contact for Web Services
+            💬 WhatsApp
           </a>
+
+          <a
+            href="mailto:buildwithvanshdeep@gmail.com"
+            class="btn btn-secondary">
+            📧 Email
+          </a>
+
         </div>
 
       </div>
 
 
-      <!-- SOCIAL MEDIA -->
-      <div class="service-category">
-
-        <h3 class="category-heading">📱 Social Media & Digital Services</h3>
-
-        <p class="category-text">
-          Other social-media and digital services, including:
-        </p>
-
-        <div class="service-grid">
-
-          <div class="card">
-            <div class="card-number">01</div>
-            <h3>Meta Ads</h3>
-            <p>
-              Assistance with Meta advertising and
-              social-media-related digital services.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-number">02</div>
-            <h3>Account Management</h3>
-            <p>
-              Account and email management support
-              for your digital presence.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-number">03</div>
-            <h3>App Creation</h3>
-            <p>
-              Digital app concepts and custom solutions
-              for different requirements.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-number">04</div>
-            <h3>And Many More</h3>
-            <p>
-              Have something specific in mind?
-              Contact me and let's discuss it.
-            </p>
-          </div>
-
-        </div>
-
-        <div class="buttons">
-          <a
-            href="https://wa.me/917900960207"
-            target="_blank"
-            class="btn btn-primary">
-            💬 Contact for Social Media Services
-          </a>
-        </div>
-
-      </div>
-
-
-      <!-- PLUGGING -->
-      <div class="service-category">
-
-        <h3 class="category-heading">🔌 Plugging Services</h3>
-
-        <p class="category-text">
-          Digital support services for specific account,
-          platform and editing-related requirements.
-        </p>
-
-        <div class="plugging-box">
-
-          <h3>Need a specific digital service?</h3>
-
-          <p>
-            Contact me on Telegram for plugging-related services
-            and other digital support requirements.
-          </p>
-
-          <div class="plug-list">
-
-            <div class="plug-item">
-              🔐 Account Support / Recovery Assistance
-            </div>
-
-            <div class="plug-item">
-              ✏️ Edit Services
-            </div>
-
-            <div class="plug-item">
-              🛠️ Digital Support Services
-            </div>
-
-            <div class="plug-item">
-              ➕ Many More Services
-            </div>
-
-          </div>
-
-          <div class="buttons">
-
-            <a
-              href="https://t.me/sir_tobii"
-              target="_blank"
-              class="btn btn-primary">
-              💬 Contact on Telegram
-            </a>
-
-            <a
-              href="https://t.me/tobi_empire"
-              target="_blank"
-              class="btn btn-secondary">
-              📢 Telegram Channel
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- WORK -->
-  <section id="work">
-    <div class="container">
-
-      <div class="section-label">03 — My Work</div>
-
-      <h2 class="section-title">Concept Projects.</h2>
-
-      <p class="section-subtitle">
-        Website concepts I've created to explore different
-        business styles and industries.
-      </p>
-
-      <div class="projects">
-
-        <div class="project">
-          <div class="project-tag">CONCEPT DEMO</div>
-
-          <h3>Education Website Concept</h3>
-
-          <p>
-            A modern education website concept with courses,
-            information, results and enquiry sections.
-          </p>
-
-          <a
-            href="https://vanshbuildswebsites.github.io/Delhi-classes-khatima/"
-            target="_blank">
-            View Demo →
-          </a>
-        </div>
-
-
-        <div class="project">
-          <div class="project-tag">CONCEPT DEMO</div>
-
-          <h3>Salon Website Concept</h3>
-
-          <p>
-            A stylish salon website concept with services,
-            gallery, appointments and contact sections.
-          </p>
-
-          <a
-            href="https://vanshbuildswebsites.github.io/Makeovers-Khatima/"
-            target="_blank">
-            View Demo →
-          </a>
-        </div>
-
-
-        <div class="project">
-          <div class="project-tag">CONCEPT DEMO</div>
-
-          <h3>Coaching Website Concept</h3>
-
-          <p>
-            A clean educational website concept focused on
-            courses, results, testimonials and enquiries.
-          </p>
-
-          <a
-            href="https://vanshbuildswebsites.github.io/Abhyas-Classes-Khatima/"
-            target="_blank">
-            View Demo →
-          </a>
-        </div>
-
-
-        <div class="project">
-          <div class="project-tag">CONCEPT DEMO</div>
-
-          <h3>Furniture Website Concept</h3>
-
-          <p>
-            A digital showroom concept for displaying furniture,
-            categories, products and customer enquiries.
-          </p>
-
-          <a
-            href="https://vanshbuildswebsites.github.io/Home-Style-Furniture-Mart/"
-            target="_blank">
-            View Demo →
-          </a>
-        </div>
-
-      </div>
-
-
-      <div class="disclaimer">
-        🔒 <strong>CONCEPT DEMOS — NOT OFFICIAL WEBSITES</strong><br><br>
-
-        These projects are unofficial website concepts created by
-        Vansh Builds Websites for demonstration purposes only.
-        They are not affiliated with or officially associated with
-        the businesses shown.
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- PRICING -->
-  <section id="pricing">
-    <div class="container">
-
-      <div class="section-label">04 — Pricing</div>
-
-      <h2 class="section-title">Let's talk numbers.</h2>
-
-      <div class="pricing-box">
-
-        <h3>💰 DM for pricing</h3>
+      <div class="contact-card">
+
+        <h3>
+          🔌 Plugging Services
+        </h3>
 
         <p>
-          Pricing depends on your requirements, project scope,
-          features and the level of your website/service.
+          For plugging, account support/recovery assistance,
+          edit services and other related requirements.
         </p>
 
-        <p class="price-note">
-          No fixed price — every project is different.
-        </p>
+        <div class="buttons">
 
-      </div>
+          <a
+            href="https://t.me/sir_tobii"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary">
+            💬 Telegram DM
+          </a>
 
-    </div>
-  </section>
-
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-
-      <div class="section-label">05 — Contact</div>
-
-      <h2 class="section-title">Let's work together.</h2>
-
-      <p class="section-subtitle">
-        Choose the platform based on the service you need.
-      </p>
-
-
-      <div class="contact-grid">
-
-        <div class="contact-card">
-
-          <h3>🌐 Web & Social Services</h3>
-
-          <p>
-            For web services, Meta Ads, social-media services,
-            account/email management, apps and other digital services.
-          </p>
-
-          <div class="buttons">
-
-            <a
-              href="https://wa.me/917900960207"
-              target="_blank"
-              class="btn btn-primary">
-              💬 WhatsApp
-            </a>
-
-            <a
-              href="mailto:buildwithvanshdeep@gmail.com"
-              class="btn btn-secondary">
-              📧 Email
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="contact-card">
-
-          <h3>🔌 Plugging Services</h3>
-
-          <p>
-            For plugging, account support/recovery assistance,
-            edit services and other related requirements.
-          </p>
-
-          <div class="buttons">
-
-            <a
-              href="https://t.me/sir_tobii"
-              target="_blank"
-              class="btn btn-primary">
-              💬 Telegram DM
-            </a>
-
-            <a
-              href="https://t.me/tobi_empire"
-              target="_blank"
-              class="btn btn-secondary">
-              📢 Channel
-            </a>
-
-          </div>
+          <a
+            href="https://t.me/tobi_empire"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-secondary">
+            📢 Channel
+          </a>
 
         </div>
 
       </div>
 
+
     </div>
-  </section>
+
+  </div>
+
+</section>
 
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      © 2026 Vansh Builds Websites · Built with 💻 by Vansh
-    </div>
-  </footer>
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <div class="footer-glow"></div>
+
+  <div class="container">
+
+    © 2026 Vansh Builds Websites · Built with 💻 by Vansh
+
+  </div>
+
+</footer>
 
 </body>
 </html>
